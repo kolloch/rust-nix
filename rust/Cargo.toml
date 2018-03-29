@@ -1,0 +1,6 @@
+[package]
+name = "nix-rust"
+version = "0.1.0"
+authors = ["Peter Kolloch <info@eigenvalue.net>"]
+
+[dependencies]
