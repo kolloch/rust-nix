@@ -5,6 +5,7 @@ in
   stdenv.mkDerivation {
     name = "moz_overlay_shell";
     buildInputs = [
-      nixpkgs.latest.rustChannels.nightly.rust
+        rust
+        rustSrc
       ];
   }

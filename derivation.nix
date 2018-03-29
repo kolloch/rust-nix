@@ -7,7 +7,7 @@ rec {
    hello = stdenv.mkDerivation rec {
       name = "rust";
       src = ./rust;
-      buildInputs = [ pkgs.rustc pkgs.cargo ];
+      buildInputs = with pkgs; [ rustc cargo openssl ];
       postUnpack = ''
       mkdir -p $sourceRoot/.cargo
       cat <<EOF > $sourceRoot/.cargo/config # FIXME

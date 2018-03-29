@@ -4,4 +4,4 @@ version = "0.1.0"
 authors = ["Peter Kolloch <info@eigenvalue.net>"]
 
 [dependencies]
-bytecount="0.2.0"
+actix-web="0.4"

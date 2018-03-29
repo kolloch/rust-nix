@@ -15,6 +15,8 @@ let
     overlays = [
         moz_overlay
 
+        (import "${moz_pkgs}/rust-src-overlay.nix")
+
         (self: super: { 
             rustPlatform.rustRegistry = super.callPackage ./rust-packages.nix { }; }) # by adding the rustRegistry entry here in the overlay, the specific rustRegistry date / SHA will be used in the later overlays and compiles.
 
