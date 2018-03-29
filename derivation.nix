@@ -1,4 +1,4 @@
-{pkgs, rustPlatform, stdenv, fetchFromGitHub}:
+{ pkgs, rustPlatform, stdenv, fetchFromGitHub }:
 
 with rustPlatform;
 
