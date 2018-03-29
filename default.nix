@@ -4,9 +4,9 @@ let
   fetchNixpkgs = nixpkgs.fetchFromGitHub {
     owner = "NixOS";
     repo = "nixpkgs";
-    #branch = "17.09";
-    rev = "2a28e657421be06a0f2b1189344f454e12d0e2f7";
-    sha256 = "0vjjdkplkak7vd6pjyvi89ib2rfd00gbqfpwkp0jwckqa61gfx5x";
+    # Updated to release-17.09 as of 2018-03-29
+    rev = "3410d73b2012aa429981d598993e0210cb68beb1";
+    sha256 = "16h1m2myjlzm320m71w7bk958graxlbvhq5rxrx9gv1vaawwcw8g";
   };
   pkgs = import fetchNixpkgs { config = {}; };
 in pkgs.callPackage ./derivation.nix {}
