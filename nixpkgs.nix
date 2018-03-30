@@ -15,21 +15,30 @@ let
     overlays = [
         moz_overlay
 
-        (import "${moz_pkgs}/rust-src-overlay.nix")
-
         (self: super: { 
             rustPlatform.rustRegistry = super.callPackage ./rust-packages.nix { }; }) # by adding the rustRegistry entry here in the overlay, the specific rustRegistry date / SHA will be used in the later overlays and compiles.
 
         (self: super:
         let
-        # base = super.rustChannels.nightly;
-        base = super.rustChannelOf { channel = "1.25.0"; };
+          # base = super.rustChannels.nightly;
+          base = super.rustChannelOf { channel = "1.25.0"; };
+          extensions = [              
+                "rls-preview"
+                "rustfmt-preview"
+                "rust-src"
+                "rust-analysis"
+                "rust-std"
+            ];
         in
         {
-        rust = {
-            rustc = base.rust;
-            cargo = base.cargo;
-        };
+          rust = base.rust.override {
+            inherit extensions;
+          };
+
+          rustc = base.rustc;
+          cargo = base.cargo;
+          rust-src = base.rust-src;
+
         })
     ];
   })
