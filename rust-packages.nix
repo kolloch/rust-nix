@@ -1,6 +1,6 @@
 # See https://gist.github.com/greglearns/192a4cc31aef8acdf3190fefa4f124ee
 
-# Change the `name` and `rev`values to select specific dates/commit-SHAs that will be used to download a specific SHA / date to use for nix rust.
+# Run ./update-rust-packages.sh to update pinned version to the most recent one.
 
 # This file defines the source of Rust / cargo's crates registry
 #
