@@ -23,7 +23,7 @@ let
         (self: super:
         let
         # base = super.rustChannels.nightly;
-        base = super.rustChannelOf { channel = "stable"; };
+        base = super.rustChannelOf { channel = "1.25.0"; };
         in
         {
         rust = {
