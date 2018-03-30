@@ -8,17 +8,19 @@
 # version that we define here. If you're having problems downloading / finding
 # a Rust library, try updating this to a newer commit.
 
-{ stdenv, fetchFromGitHub, git }:
+{ stdenv, fetchFromGitHub, git, lib }:
 
-stdenv.mkDerivation {
-  name = "rustRegistry-2018-03-28";
+let
+  pinnedVersion = lib.importJSON ./rust-packages.json;
+in stdenv.mkDerivation {
+  name = "rustRegistry-${pinnedVersion.rev}";
 
   src = fetchFromGitHub {
     owner = "rust-lang";
     repo = "crates.io-index";
-    rev = "1b48e2eb0db20e5e2a5c2d4c5193fe6eda4a5771";
-    sha256 = "0p3vsd2fhfs62pxv9f8xsxmfym96z7abkwpqipnxv9vzwbmhcd0c";
+    inherit (pinnedVersion) rev sha256;
   };
+
   phases = [ "unpackPhase" "installPhase" ];
   installPhase = ''
     # For some reason, cargo doesn't like fetchgit's git repositories, not even
